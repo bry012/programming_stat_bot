@@ -28,10 +28,8 @@ class programming_stat_bot(object):
 	def modify_languages_for_regex(self,language):
 			if "+" in language:
 				language = language.replace("+","\+")
-				print language
 			elif language == "c":
 				language = language.replace("c",r'(?<!objective-)\bc\b([^\+#\w\d]|$)')
-				print language
 			elif len(language) == 1:
 	
 				language = language.replace(language,r"[^']\b"+language+r'\b[^.]')
@@ -91,7 +89,6 @@ class programming_stat_bot(object):
 		submission_text = self.submission_intro
 		for key in self.language_dict.keys():
 			limit = min(self.language_mentions[-5:])
-			print limit, self.language_dict[key][0]
 			if self.language_dict[key][0] >= limit and self.language_dict[key][0] != 0:
 				submission_text += self.produce_language_stats(key)
 		return submission_text
@@ -133,7 +130,6 @@ class programming_stat_bot(object):
 			if submission_id != self.submission_id:
 				return False
 			elif last_day_of_month == day and self.month_of_last_submission != month:
-				print last_day_of_month, self.month_of_last_submission, month
 				self.month_of_last_submission = month
 				self.submission.delete()
 				self.main()
