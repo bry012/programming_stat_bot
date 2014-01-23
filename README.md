@@ -1,11 +1,12 @@
-programming_stat_bot
+#programming_stat_bot
+
 This is a simple bot used to parse through submissions to the subreddit /r/programming using python and the praw package. programming_stat_bot parses through the title text of each submission and checks whether a particular language is mentioned. The bot then sorts the submissions for each language and lists the top ten submissions based on number of upvotes for the top five most mentioned languages.
 
 To see the listing of submissions, check out the comment section for programming_stat_bot submissions.
 
 Feel free to make any suggestions or additions for programming_stat_bot either on github or personal message the bot on reddit.
 
-Features:
+## Features:
 
 * **supports 250+ languages**:
 
