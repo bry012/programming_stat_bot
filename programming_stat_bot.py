@@ -4,9 +4,6 @@ import re
 import time
 import datetime
 import calendar
-username = "programming_stat_bot"
-password = "password"
-
 class programming_stat_bot(object):
 	def __init__(self,username,password):
 		self.user_agent = ("First Bot 0.1 by /u/bry012")
@@ -135,7 +132,7 @@ class programming_stat_bot(object):
 								comment.reply("Sorry, language not supported. Please, PM this bot or make an issue at my Github repository [programming_stat_bot](https://github.com/bry012/programming_stat_bot)")
 			if submission_id != self.submission_id:
 				return False
-			elif 23 == day and self.month_of_last_submission != month:
+			elif last_day_of_month == day and self.month_of_last_submission != month:
 				print last_day_of_month, self.month_of_last_submission, month
 				self.month_of_last_submission = month
 				self.submission.delete()
@@ -172,7 +169,9 @@ class programming_stat_bot(object):
 		self.monitor_submission(self.submission_id)
 
 if __name__ == "__main__":
-	bot = programming_stat_bot(username,password)
+	f = open("user_info.txt","r")
+	username, password = f.readlines()
+	bot = programming_stat_bot(username.strip(),password.strip())
 
 
 
